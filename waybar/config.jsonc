@@ -1,0 +1,107 @@
+{
+  "position": "top",
+  // ===================================
+  "modules-left": [
+    "hyprland/window",
+    "tray",
+  ],
+  "modules-center": [
+    "hyprland/workspaces",
+  ],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "battery",
+    "clock"
+  ],
+  // ===================================
+  "hyprland/window": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "󰈹", // Fallback icon
+      "chrome": "",
+      "code": "",
+      "kitty": "",
+      "gedit": "󰝨"
+    },
+    "tooltip": false // Optional: Disable the tooltip
+  },
+  // -----------------------------------
+  "tray": {
+    "spacing": 10
+  },
+  // -----------------------------------
+  "hyprland/workspaces": {
+    "all-outputs": false,
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+  },
+  // -----------------------------------
+  "clock": {
+    "interval": 1,
+    "format": "{:%a %d, %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "on-click": "swaync-client -t -sw",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "smooth-scrolling-threshold": 0.2,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-scroll-up": "shift_down",
+      "on-scroll-down": "shift_up"
+    }
+  },
+  // -----------------------------------
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span size='13000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
+    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
+    "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
+    "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip-format": "{time}"
+  },
+  "network": {
+    "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
+    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+  },
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        " "
+      ]
+    },
+    "on-click": "pavucontrol"
+  }
+}
